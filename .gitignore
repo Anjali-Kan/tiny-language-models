@@ -1,0 +1,40 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.env/
+
+# PyTorch checkpoints
+*.pt
+*.pth
+*.ckpt
+
+# Data (downloaded separately)
+data/
+
+# Results (except figures for README)
+results/*.json
+results/*.pt
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+wandb/
+runs/

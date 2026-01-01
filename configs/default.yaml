@@ -1,0 +1,82 @@
+# Configuration for language model training experiments
+# Override via command line: python scripts/train.py --config configs/custom.yaml
+
+# Model configurations
+models:
+  linear:
+    epochs: 15
+    learning_rate: 0.01
+    batch_size: 128
+    context_lengths: [16, 32, 64, 128]
+
+  mlp:
+    epochs: 25
+    learning_rate: 0.001
+    batch_size: 128
+    context_length: 64
+    embed_dim: 32
+    hidden_dims_options:
+      - [128, 128, 128]
+      - [256, 256, 256]
+      - [512, 512, 512]
+    activation: gelu
+    dropout: 0.1
+
+  attention:
+    epochs: 30
+    learning_rate: 0.001
+    batch_size: 64
+    context_length: 64
+    embed_dim: 128
+    n_layers: 2
+    heads_options: [1, 2, 4, 8]
+    dropout: 0.1
+
+  transformer:
+    epochs: 40
+    learning_rate: 0.0003
+    batch_size: 32
+    context_length: 128
+    embed_dim: 128
+    n_heads: 4
+    layers_options: [2, 4, 6]
+    mlp_ratio: 4.0
+    dropout: 0.1
+
+# Training settings
+training:
+  seed: 42
+  early_stopping_patience: 10
+  gradient_clip: 1.0
+  weight_decay: 0.01
+  scheduler: cosine  # cosine, linear, none
+
+# Data settings  
+data:
+  shakespeare:
+    type: char
+    path: data/tiny_shakespeare
+  ptb:
+    type: word
+    path: data/ptb
+    max_vocab: 10000
+  wikitext:
+    type: word
+    path: data/wikitext-2
+    max_vocab: 10000
+
+# Quick mode (for testing)
+quick:
+  linear:
+    epochs: 5
+    context_lengths: [32, 64]
+  mlp:
+    epochs: 8
+    hidden_dims_options:
+      - [256, 256, 256]
+  attention:
+    epochs: 10
+    heads_options: [2, 4]
+  transformer:
+    epochs: 12
+    layers_options: [2, 4]
