@@ -101,23 +101,25 @@ Goodbye!
 This is a work in progress. I am adding the link to my own pretrained weight files to be downloaded here. Ill mostly host on drive or as  Github release assets to avoid large repo size.
 
 
-<!-- Pre-trained checkpoints are available if you want to skip training: -->
+Pre-trained checkpoints are available if you want to skip training: 
 
-<!-- | Model | Download | Size |
+| Model | Download | Size |
 |-------|----------|------|
-| Transformer (4 layers) | [Google Drive](link to be added) | ~6MB |
-| Attention (4 heads) | [Google Drive](link to be added) | ~2MB |
-| MLP (256×3) | [Google Drive](link to be added) | ~1MB |
-| Linear (ctx=128) | [Google Drive](link to be added) | ~3MB |
- -->
-<!-- **Setup:**
+| Transformer (4 layers) | [Download](https://github.com/Anjali-Kan/tiny-language-models/releases/download/v1.0.0/transformer_L4.pt) | ~4MB |
+| Transformer (2 layers) | [Download](https://github.com/Anjali-Kan/tiny-language-models/releases/download/v1.0.0/transformer_L2.pt) | ~2MB |
+| Attention (4 heads) | [Download](https://github.com/Anjali-Kan/tiny-language-models/releases/download/v1.0.0/attention_h4.pt) | ~650KB |
+| MLP (256×3) | [Download](https://github.com/Anjali-Kan/tiny-language-models/releases/download/v1.0.0/mlp_256x256x256.pt) | ~3MB |
+| Linear (ctx=128) | [Download](https://github.com/Anjali-Kan/tiny-language-models/releases/download/v1.0.0/linear_ctx128.pt) | ~2MB |
+
+
+ **Setup:**
 ```bash
 # Download and place in results/ directory
 mv ~/Downloads/*.pt results/
 
 # Verify
 python scripts/generate.py --prompt "HAMLET:" --model transformer
-``` -->
+``` 
 
 > **Note:** Although Checkpoints are not included in repo due to size. You can also train from scratch using `python scripts/train.py`
 
